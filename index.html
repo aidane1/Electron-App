@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" /> -->
+  <script src="https://kit.fontawesome.com/9afb2fab5c.js" crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --grey-1: #121212;
+      --grey-2: #444444;
+      
+      --sidebar-base-width: 70px;
+      --sidebar-expanded-width: 170px;
+
+      --primary-color: red;
+      --primary-hover-color: rgb(112, 56, 56);
+
+      --secondary-color: green;
+      --transition-timing: 200ms;
+
+      --text-color: rgba(255, 255, 255, 0.87);
+      
+      font-size: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      background-color: var(--grey-1);
+      color: var(--text-color);
+      line-height: 1.5rem;
+    }
+
+    body::-webkit-scrollbar {
+      /* background-color: #121212; */
+      background-color: var(--grey-2);
+    }
+
+    body::-webkit-scrollbar-track {
+      /* background-color: transparent; */
+      /* background-color: red; */
+    }
+
+    body::-webkit-scrollbar-thumb {
+      /* background-color: red; */
+    }
+
+    body::-webkit-scrollbar-thumb:hover {}
+
+    .content {
+      width: 100%;
+      padding-left: calc(var(--sidebar-base-width) + 10px);
+      overflow: auto;
+    }
+
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: var(--sidebar-base-width);
+      background-color: var(--grey-2);
+      transition: width var(--transition-timing) ease-out;
+      box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar-items {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px 0px;
+    }
+
+    .sidebar-item {
+      width: 100%;
+      border-top-right-radius: 100px;
+      border-bottom-right-radius: 100px;
+      text-align: center;
+      list-style-type: none;
+      margin: 0;
+      margin-top: 5px;
+      padding: 0;
+      overflow: hidden;
+      background-color: transparent;
+      transition: background-color var(--transition-timing) ease-out;
+    }
+
+    .sidebar:hover {
+      width: var(--sidebar-expanded-width);
+    }
+
+    .sidebar-item:hover {
+      background-color: var(--primary-hover-color);
+    }
+    .sidebar-item:hover > a {
+      color: white;
+    }
+
+    .sidebar-item > a {
+      width: var(--sidebar-expanded-width);
+      padding: 10px 0px;
+      color: var(--text-color);
+      text-decoration: none;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .link-icon {
+      width: var(--sidebar-base-width);
+      font-size: 1.5rem;
+    }
+
+    .link-text {
+      width: calc(var(--sidebar-expanded-width) - var(--sidebar-base-width));
+      text-align: left;
+    }
+
+    .sidebar-item:last-child {
+      margin-top: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="sidebar">
+    <ul class="sidebar-items">
+      <li class="sidebar-item">
+        <a href="#">
+          <div class="link-icon">
+            <i class="fab fa-500px"></i>
+          </div>
+          <div class="link-text">
+            First
+          </div>
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a href="#">
+          <div class="link-icon">
+            <i class="fas fa-adjust"></i>
+          </div>
+          <div class="link-text">
+            Second
+          </div>
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a href="#">
+          <div class="link-icon">
+            <i class="fab fa-atlassian"></i>
+          </div>
+          <div class="link-text">
+            Third
+          </div>
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a href="#">
+          <div class="link-icon">
+            <i class="fas fa-atom"></i>
+          </div>
+          <div class="link-text">
+            Fourth
+          </div>
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a href="#">
+          <div class="link-icon">
+            <i class="fas fa-beer"></i>
+          </div>
+          <div class="link-text">
+            Bottom
+          </div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <main class="content">
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices at justo quis gravida. Ut tempor, velit
+      vel
+      sagittis gravida, nisl massa consequat sapien, a posuere ex massa a odio. Donec aliquam dignissim sapien eu
+      egestas.
+      Maecenas in leo at ex maximus dapibus scelerisque at nisl. Nam consectetur lectus pretium turpis egestas, in
+      placerat tellus interdum. Aenean eget ex non mi imperdiet interdum vitae sit amet tellus. Donec ullamcorper risus
+      aliquam interdum aliquet. Etiam felis velit, mattis a placerat in, vestibulum in nisi. Proin ipsum risus, porta
+      sollicitudin sodales vitae, gravida placerat leo. Orci varius natoque penatibus et magnis dis parturient montes,
+      nascetur ridiculus mus. Aliquam erat volutpat.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices at justo quis gravida. Ut tempor, velit
+      vel
+      sagittis gravida, nisl massa consequat sapien, a posuere ex massa a odio. Donec aliquam dignissim sapien eu
+      egestas.
+      Maecenas in leo at ex maximus dapibus scelerisque at nisl. Nam consectetur lectus pretium turpis egestas, in
+      placerat tellus interdum. Aenean eget ex non mi imperdiet interdum vitae sit amet tellus. Donec ullamcorper risus
+      aliquam interdum aliquet. Etiam felis velit, mattis a placerat in, vestibulum in nisi. Proin ipsum risus, porta
+      sollicitudin sodales vitae, gravida placerat leo. Orci varius natoque penatibus et magnis dis parturient montes,
+      nascetur ridiculus mus. Aliquam erat volutpat.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices at justo quis gravida. Ut tempor, velit
+      vel
+      sagittis gravida, nisl massa consequat sapien, a posuere ex massa a odio. Donec aliquam dignissim sapien eu
+      egestas.
+      Maecenas in leo at ex maximus dapibus scelerisque at nisl. Nam consectetur lectus pretium turpis egestas, in
+      placerat tellus interdum. Aenean eget ex non mi imperdiet interdum vitae sit amet tellus. Donec ullamcorper risus
+      aliquam interdum aliquet. Etiam felis velit, mattis a placerat in, vestibulum in nisi. Proin ipsum risus, porta
+      sollicitudin sodales vitae, gravida placerat leo. Orci varius natoque penatibus et magnis dis parturient montes,
+      nascetur ridiculus mus. Aliquam erat volutpat.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices at justo quis gravida. Ut tempor, velit
+      vel
+      sagittis gravida, nisl massa consequat sapien, a posuere ex massa a odio. Donec aliquam dignissim sapien eu
+      egestas.
+      Maecenas in leo at ex maximus dapibus scelerisque at nisl. Nam consectetur lectus pretium turpis egestas, in
+      placerat tellus interdum. Aenean eget ex non mi imperdiet interdum vitae sit amet tellus. Donec ullamcorper risus
+      aliquam interdum aliquet. Etiam felis velit, mattis a placerat in, vestibulum in nisi. Proin ipsum risus, porta
+      sollicitudin sodales vitae, gravida placerat leo. Orci varius natoque penatibus et magnis dis parturient montes,
+      nascetur ridiculus mus. Aliquam erat volutpat.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices at justo quis gravida. Ut tempor, velit
+      vel
+      sagittis gravida, nisl massa consequat sapien, a posuere ex massa a odio. Donec aliquam dignissim sapien eu
+      egestas.
+      Maecenas in leo at ex maximus dapibus scelerisque at nisl. Nam consectetur lectus pretium turpis egestas, in
+      placerat tellus interdum. Aenean eget ex non mi imperdiet interdum vitae sit amet tellus. Donec ullamcorper risus
+      aliquam interdum aliquet. Etiam felis velit, mattis a placerat in, vestibulum in nisi. Proin ipsum risus, porta
+      sollicitudin sodales vitae, gravida placerat leo. Orci varius natoque penatibus et magnis dis parturient montes,
+      nascetur ridiculus mus. Aliquam erat volutpat.
+    </p>
+  </main>
+
+</body>
+
+</html>
